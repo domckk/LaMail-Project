@@ -26,5 +26,5 @@ A lightweight email client built with pure JavaScript that simulates core email 
 ### Installation
 1. Clone the repository
 ```bash
-git clone https://github.com/domckk/LaMail.git
+git clone https://github.com/domckk/LaMail-Project.git
 
