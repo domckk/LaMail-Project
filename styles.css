@@ -1,0 +1,725 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary: #6c5ce7;
+    --primary-light: #a29bfe;
+    --secondary: #00cec9;
+    --dark: #2d3436;
+    --light: #f5f6fa;
+    --success: #00b894;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.signup-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    z-index: 2;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.signup-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        transparent 0%,
+        transparent 49%,
+        var(--primary-light) 50%,
+        var(--primary) 100%
+    );
+    opacity: 0.15;
+    transform: rotate(30deg);
+    z-index: -1;
+    animation: shine 8s infinite linear;
+}
+
+@keyframes shine {
+    0% { transform: rotate(30deg) translate(-10%, -10%); }
+    100% { transform: rotate(30deg) translate(10%, 10%); }
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.logo-image {
+    width: 110px; /* Slightly smaller to fit within the circle */
+    height: 110px;
+    object-fit: contain;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+h1 {
+    color: var(--dark);
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+h1 span {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+p {
+    color: #666;
+    font-size: 14px;
+}
+
+.animated-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 0 5px 0;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    background-color: transparent;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-bottom-color: var(--primary);
+}
+
+.input-group label {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    color: #999;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.input-group .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+    top: 0;
+    font-size: 12px;
+    color: var(--primary);
+}
+
+.input-group input:focus ~ .underline {
+    width: 100%;
+}
+
+.submit-btn {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.6);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn i {
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover i {
+    transform: translateX(5px);
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: all 0.5s ease;
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+}
+
+.success-container {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.checkmark {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+}
+
+.checkmark-circle {
+    stroke: var(--success);
+    stroke-width: 2;
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+    stroke: var(--success);
+    stroke-width: 2;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.success-container h2 {
+    color: var(--success);
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.success-container p {
+    color: var(--dark);
+    margin-bottom: 20px;
+}
+
+.success-container span {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+
+.confetti {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.confetti::before,
+.confetti::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary);
+    top: -10px;
+    animation: confetti 3s ease-in-out infinite;
+}
+
+.confetti::after {
+    background-color: var(--secondary);
+    left: 20%;
+    animation-delay: 0.5s;
+}
+
+.confetti::before {
+    left: 40%;
+    animation-delay: 1s;
+}
+
+@keyframes confetti {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(500px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Auth switch link */
+.auth-switch {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+}
+
+.auth-switch a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+.auth-view, .login-view {
+    transition: opacity 0.3s ease;
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+/* Inbox Modal Styles */
+.inbox-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 900px;
+    height: 80vh;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    z-index: 100;
+    display: flex;
+}
+
+.inbox-sidebar {
+    width: 250px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inbox-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.inbox-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+}
+
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#current-user-name {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+#current-user-email {
+    font-size: 14px;
+    color: #e0e0e0;
+    word-break: break-all;
+}
+
+.compose-btn {
+    width: 100%;
+    padding: 12px;
+    background: white;
+    color: var(--primary);
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.compose-btn:hover {
+    background: #f5f6fa;
+    transform: translateY(-2px);
+}
+
+.inbox-folders {
+    flex: 1;
+}
+
+.folder {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.folder:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.folder.active {
+    background: rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+}
+
+.badge {
+    margin-left: auto;
+    background: white;
+    color: var(--primary);
+    border-radius: 10px;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.logout-btn {
+    margin-top: auto;
+    padding: 10px;
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.email-list {
+    flex: 1;
+    overflow-y: auto;
+    border-bottom: 1px solid #eee;
+}
+
+.email-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.email-item:hover {
+    background: #f9f9f9;
+}
+
+.email-item.unread {
+    background: #f0f4ff;
+    font-weight: 600;
+}
+
+.email-item.selected {
+    background: #e6e9ff;
+}
+
+.email-item .email-sender {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.email-item .email-subject {
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.email-item .email-preview {
+    color: #666;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.email-view {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.email-header {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.email-sender {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    margin-top: 10px;
+}
+
+.email-body {
+    line-height: 1.6;
+}
+
+.email-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #f0f0f0;
+    transition: background 0.2s;
+}
+
+.action-btn:hover {
+    background: #e0e0e0;
+}
+
+.action-btn.delete {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.action-btn.delete:hover {
+    background-color: #ffcdd2;
+}
+
+/* Compose Email Styles */
+.compose-email {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    padding: 20px;
+    z-index: 10;
+}
+
+.compose-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.compose-form .input-group {
+    margin-bottom: 15px;
+}
+
+.compose-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.compose-form input,
+.compose-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.compose-form textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+.compose-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.draft-btn {
+    padding: 10px 15px;
+    background: #f5f6fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s ease;
+}
+
+.draft-btn:hover {
+    background: #eee;
+}
+
+.no-emails {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+/* Overlay for modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+}
+
+/* Particle animation */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    background-image: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .inbox-container {
+        flex-direction: column;
+        height: 90vh;
+    }
+    
+    .inbox-sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+    
+    .inbox-header {
+        width: 100%;
+    }
+    
+    .inbox-folders {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .folder {
+        margin-bottom: 0;
+        padding: 8px 12px;
+    }
+    
+    .logout-btn {
+        margin-left: auto;
+    }
+}

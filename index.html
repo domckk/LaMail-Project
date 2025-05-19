@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaMail</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="particles" id="particles-js"></div>
+    
+    <!-- Login/Signup View -->
+    <div class="signup-card" id="auth-view">
+        <div class="card-header">
+            <div class="logo">
+                <img src="logo-transparent.png" alt="Logo" class="logo-image">
+            </div>
+            <h1>Join now to <span>LaMail</span></h1>
+            <p>Connect to different people!</p>
+        </div>
+
+        <form id="signup-form" class="animated-form">
+            <div class="input-group floating">
+                <input type="text" id="name" name="name" required>
+                <label for="name">Your Name</label>
+                <div class="underline"></div>
+            </div>
+            
+            <div class="input-group floating">
+                <input type="email" id="email" name="email" required>
+                <label for="email">Email Address</label>
+                <div class="underline"></div>
+            </div>
+            
+            <div class="input-group floating">
+                <input type="password" id="password" name="password" required>
+                <label for="password">Password</label>
+                <div class="underline"></div>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+                <span>Join Community</span>
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+        
+        <div class="auth-switch">
+            Already have an account? <a href="#" id="login-link">Log in</a>
+        </div>
+    </div>
+    
+    <!-- Login View (hidden initially) -->
+    <div class="signup-card hidden" id="login-view">
+        <div class="card-header">
+            <div class="logo">
+                <img src="logo-transparent.png" alt="Logo" class="logo-image">
+            </div>
+            <h1>Welcome Back!</h1>
+            <p>Log in to access LaMail</p>
+        </div>
+
+        <form id="login-form" class="animated-form">
+            <div class="input-group floating">
+                <input type="email" id="login-email" name="email" required>
+                <label for="login-email">Email Address</label>
+                <div class="underline"></div>
+            </div>
+            
+            <div class="input-group floating">
+                <input type="password" id="login-password" name="password" required>
+                <label for="login-password">Password</label>
+                <div class="underline"></div>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+                <span>Log In</span>
+                <i class="fas fa-sign-in-alt"></i>
+            </button>
+        </form>
+        
+        <div class="auth-switch">
+            New here? <a href="#" id="signup-link">Create an account</a>
+        </div>
+    </div>
+    
+    <!-- Success Message (hidden initially) -->
+    <div id="success-message" class="success-container hidden">
+        <div class="checkmark">
+            <svg viewBox="0 0 52 52">
+                <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+        </div>
+        <h2>You're In!</h2>
+        <p>Welcome to the community <span id="subscribed-email"></span></p>
+        <div class="confetti"></div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
